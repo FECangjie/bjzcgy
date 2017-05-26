@@ -6,11 +6,11 @@
 
 ## 使用
 
-git clone git@github.com:xxx.git
+git clone git@github.com:FECangjie/bjzcgy.git
 
 1. 安装 依赖 `npm install`
 
-2. webpack 打包构建   `webpack --display-error-details --watch`
+2. webpack 打包构建   `webpack`
 
 3. npm 开发 `npm run dev`
    上线：`npm run build`
@@ -18,13 +18,9 @@ git clone git@github.com:xxx.git
 ## 结构
 
 ```
-|--- pages // 页面文件
-|       |--- tpl // 页面模板
-|       |       |--- page1.html
-|       |       |--- page2.html
-|       |--- views // 添加css、js后的页面模板
-|               |--- page1.html
-|               |--- page2.html
+|--- template // 页面文件 页面模板
+|       |--- page1.html
+|       |--- page2.html
 |--- src // 页面css、js
 |       |--- common // 公共模块
 |       |       |--- index.js
@@ -66,7 +62,7 @@ module.exports = {
 ```js
 // 为了支持修改模板文件文件时页面自动刷新
 if(ENV == 'DEV') {
-    require('pages/views/page1.html')
+    require('pages/page1.html')
 }
 [使用ProvidePlugin](./src/page3/main.js)
 import style from './style.css' // 引入css
@@ -82,4 +78,7 @@ import common from 'src/common' // 引入common模块
 
 ## tips
 
+
 * `externals` 可以让你正常使用全局 `script`
+* 首次启动项目 建议`npm run bliud`下
+* 构建后的目录 dist静态资源  pages页面模版
