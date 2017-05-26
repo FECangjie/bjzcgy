@@ -6,7 +6,7 @@
   "license": "ISC",
   "scripts": {
     "dev": "cross-env ENV=DEV webpack-dev-server --inline --hot --quiet --progress --content-base pages/  --host 127.0.0.1 --port 8080 --open",
-    "build": "cross-env CDN='../dist' webpack"
+    "build": "cross-env CDN='../dist/' webpack"
   },
   "devDependencies": {
     "babel-core": "^6.21.0",

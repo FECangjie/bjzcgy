@@ -147,7 +147,7 @@ font-size: 14px;
 
 /*导航site-nav部分Start*/
 html,head,body{
-    width:1920px;
+    /*width:1920px;*/
     font-family: "微软雅黑";
     color:#333;
 }

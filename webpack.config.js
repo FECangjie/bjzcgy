@@ -52,7 +52,7 @@ module.exports = {
 			{ test: /\.css/, loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader' }) },
 			{ test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader', query: { presets: ['es2015']}},
 			// { test: /(\.html|\.php)$/, loader: "raw-loader" },
-			{ test: /\.(png|jpg)$/, loader: 'url-loader' },
+			{ test: /\.(png|jpg)$/, loader: 'url-loader?limit=51200&name=images/[name].[ext]' },
 			{ test: /\.html$/, loader: "html-loader?attrs=img:src img:data-src" }
 		]
 	},
