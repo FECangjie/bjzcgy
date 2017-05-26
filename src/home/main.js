@@ -11,9 +11,9 @@ import './style.css'
 import * as d3 from 'd3'
 console.log(d3)
 
-var req = require.context("../images", true, /^\.\/.*\.png|jpg|jpeg$/);
-
-$("img").attr("src", (n, url) => { // html 图片地址处理
-	var temp = url.split('/')
-	return req('./' + temp[temp.length - 1])
-})
+// var req = require.context("../images", true, /^\.\/.*\.png|jpg|jpeg$/);
+//
+// $("img").attr("src", (n, url) => { // html 图片地址处理
+// 	var temp = url.split('/')
+// 	return req('./' + temp[temp.length - 1])
+// })
