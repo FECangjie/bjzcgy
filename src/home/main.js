@@ -1,3 +1,6 @@
+/**
+ * 主页
+ */
 if(ENV == 'DEV') {
 	require('pages/home.html')
 }
