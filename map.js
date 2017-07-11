@@ -11,9 +11,14 @@ module.exports = {
 		"tpl": "home.html"
 	},
 
-	'page2/main': {
-		"src": ROOT + '/src/page2/main',
-		"tpl": "page2.html"
+	'notice/main': {
+		"src": ROOT + '/src/notice/main',
+		"tpl": "notice.html"
+	},
+
+	'gonggao/main': {
+		"src": ROOT + '/src/gonggao/main',
+		"tpl": "gonggao.html"
 	}
 
 }
