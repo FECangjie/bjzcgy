@@ -14,8 +14,6 @@ module.exports = function (req, res, next) {
     // temp = temp.substr(4, temp.length)
     var apiPath = rootPath + '/mock/' + temp + '.js'
     var api = require(apiPath)
-    console.log(apiPath)
-    console.log(api)
     res.send(api(null, req.body || req.query))
   } else {
     next()

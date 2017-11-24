@@ -5,22 +5,19 @@ if (ENV === 'DEV') {
 	require('pages/home.html')
 }
 import 'template/home.html'
-import 'src/common/css/base.css'
-import 'src/common/css/swiper.css'
-// import 'src/common/js/zepto.js'
-import 'src/common/js/swiper.js'
-import common from 'src/common/js'
+import 'common/css/base.css'
+import 'common/css/swiper.css'
+import 'common/js/swiper.js'
+import common from 'common/js'
 import './style.less'
 import * as d3 from 'd3'
-
-// 上线注释掉
-// import Data from './data.js'
+import * as Actions from './action'
 
 $(function () {
+	alert(1)
 	var page = $('[data-mark="page"]');
 	var de = page.de()
 	var Data = {}
-
 	var mySwiper = new Swiper ('.swiper-container', {
       direction: 'horizontal',
 			autoplay: 5000,
@@ -32,6 +29,10 @@ $(function () {
 				return '<span class="' + className + '">' + '</span>';
 			}
     })
+
+		Data = Actions.getData()
+		console.log(Data)
+		debugger
 
 	/**
 	 * 动态加载swiper
@@ -90,16 +91,14 @@ $(function () {
 
 		$noticeHtml.html(listHtml)
 		$noticeHtml.append(paginationHtml)
+
+		if ($("#loading")[0]) {
+			console.log($("#loading"))
+			$("#loading").remove();
+		}
 	}
 
-	$.getJSON("./data" + window.jsonHash + ".json",function(data){
-		Data = data
-		if (!data) {
-			alert('找不到配置文件。')
-		}
-		setHtml (Data.data, 'huodong', 1)
-		setSwiper (Data.data)
-		})
+
 
 
 

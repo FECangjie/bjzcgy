@@ -8,25 +8,35 @@ var path = require('path')
 var express = require('express')
 var Webpack = require('webpack')
 var WebpackDevServer = require('webpack-dev-server')
-var config = require('./webpack.config.js')
+var config = require('./wp.config.js')
 var api = require('./middleware/mock')
 
+// config.entry.app.unshift("webpack-dev-server/client?http://localhost:8080/");
+var webApp = new WebpackDevServer(Webpack(config),{
+  // webpack-dev-server options
 
-  var webApp = new WebpackDevServer(Webpack(config))
-  var app = webApp.app
-  // var app = express()
-  app.use(api)
+  // contentBase: "pages/",
+  // Can also be an array, or: contentBase: "http://localhost/",
 
-  //Express框架的路由访问控制文件server.js，增加路由配置。
-  // app.use(function (req, res) {
-  //   res.sendfile('./template/index.html')
-  // })
+  inline: true,
+  hot: true,
 
-  app.listen(8080,
-    function(err, result) {
-      if (err) {
-        console.log(err)
-      }
-      console.log('在8080端口启动')
+  stats: { colors: true }
+})
+var app = webApp.app
+// var app = express()
+app.use(api)
+
+//Express框架的路由访问控制文件server.js，增加路由配置。
+// app.use(function (req, res) {
+//   res.sendfile('./template/index.html')
+// })
+
+app.listen(8080,
+  function(err, result) {
+    if (err) {
+      console.log(err)
     }
-  )
+    console.log('在8080端口启动')
+  }
+)

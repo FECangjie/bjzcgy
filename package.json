@@ -5,9 +5,11 @@
   "author": "qinchao@lianjia.com",
   "license": "ISC",
   "scripts": {
-    "node": "node server.js ",
-    "dev": "cross-env ENV=DEV webpack-dev-server --inline --hot --quiet --progress --content-base pages/  --host 127.0.0.1 --port 8080 --open",
-    "build": "cross-env CDN='../dist/' webpack"
+    "node": "cross-env ENV=DEV node server.js",
+    "dev": "cross-env ENV=DEV webpack-dev-server --config wp.config.js --inline --hot --progress --content-base pages/",
+    "open": "cross-env ENV=DEV webpack-dev-server --config wp.config.js --inline --hot --quiet --progress --content-base pages/ --host 127.0.0.1 --port 8080 --open ",
+    "build": "cross-env ENV=PROD CDN='../dist/' webpack --config wp.config.js",
+     "start": "npm run node"
   },
   "devDependencies": {
     "babel-core": "^6.21.0",

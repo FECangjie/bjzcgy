@@ -26,7 +26,7 @@ for (chunk in map) {
 if (ENV == 'DEV') {
 	plugins.push(new HtmlWebpackHarddiskPlugin())
 } else {
-	plugins.push(new webpack.optimize.UglifyJsPlugin({minimize: true}))
+	// plugins.push(new webpack.optimize.UglifyJsPlugin({minimize: true}))
 }
 
 module.exports = {
