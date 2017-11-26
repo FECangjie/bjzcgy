@@ -60,9 +60,9 @@ module.exports = {
         hot:true
     },
 	plugins: plugins.concat([
-		// new webpack.DefinePlugin({
-		// 	'ENV': JSON.stringify(process.env.ENV)
-		// }),
+		new webpack.DefinePlugin({
+			'ENV': JSON.stringify(process.env.ENV)
+		}),
 		// new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js' }),
 		new ExtractTextPlugin('[name].css')
 	])

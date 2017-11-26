@@ -12,9 +12,9 @@ import common from 'common/js'
 import './style.less'
 import * as d3 from 'd3'
 import * as Actions from './action'
+import fetch from 'common/js/util/fetch'
 
 $(function () {
-	alert(1)
 	var page = $('[data-mark="page"]');
 	var de = page.de()
 	var Data = {}
@@ -30,9 +30,22 @@ $(function () {
 			}
     })
 
-		Data = Actions.getData()
-		console.log(Data)
-		debugger
+	async function init() { //
+		$('.body').attr('style', 'background: url(../dist/images/bg.png) repeat-y fixed;')
+		Data = await fetch("/data.json", {
+			method:'get',
+			body: {
+				request_source: 'dmp',
+				agent_ucid: 1
+			}
+		})
+		setSwiper(Data)
+		setHtml(Data, 'huodong', 1)
+	}
+	init()
+
+
+
 
 	/**
 	 * 动态加载swiper
@@ -124,7 +137,7 @@ $(function () {
 			var el = $(data.el)
 			initTab()
 			el.attr('class','actived')
-			setHtml(Data.data, el.attr('data-value'), 1)
+			setHtml(Data, el.attr('data-value'), 1)
 		}
 
 		/**
@@ -135,7 +148,7 @@ $(function () {
 		var paginationHandle = function (data) {
 			var el = $(data.el)
 			var num = el.attr('data-value') === 'up' ? + el.attr('data-num') - 1 : + el.attr('data-num') + 1
-			setHtml(Data.data, el.attr('data-type'), num)
+			setHtml(Data, el.attr('data-type'), num)
 		}
 
 		/**

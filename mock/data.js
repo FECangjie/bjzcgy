@@ -12,7 +12,7 @@ module.exports = function (path, param, context) {
     notice: {
       huodong: [
         {
-          img:"../src/images/huodong1.png",
+          img:"../dist/images/huodong1.png",
           content: "一周年纪念，登陆奖励活动开始！",
           isNew: 1,
           date: "2016/08/30 15:00"

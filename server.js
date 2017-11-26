@@ -10,16 +10,15 @@ var Webpack = require('webpack')
 var WebpackDevServer = require('webpack-dev-server')
 var config = require('./wp.config.js')
 var api = require('./middleware/mock')
-
-// config.entry.app.unshift("webpack-dev-server/client?http://localhost:8080/");
 var webApp = new WebpackDevServer(Webpack(config),{
   // webpack-dev-server options
 
-  // contentBase: "pages/",
+  contentBase: "pages/",
   // Can also be an array, or: contentBase: "http://localhost/",
 
   inline: true,
   hot: true,
+  publicPath: "/dist",
 
   stats: { colors: true }
 })
